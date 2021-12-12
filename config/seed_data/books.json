@@ -1,0 +1,81 @@
+[
+    {
+        "title":"Orlovi rano lete",
+        "author":"Branko Ćopić",
+        "summary": "Dječija knjiga iz drugog svjetskog rata. Knjiga prati družinu seoske djece iz Bosanske krajine koju ratni vihor tjera u naglo sazrijevanje.",
+        "publication_year":1959,
+        "ageLevelId":3,
+        "difficultyLevelId":2,
+        "value": 10,
+        "status":"WIP",
+        "userId":1,
+        "createdAt":"2021-10-03T13:47:05.675773-07:00",
+        "updatedAt":"2021-10-03T13:47:05.675773-07:00"
+    },
+    {
+        "title":"Doživljaji Toma Sojera",
+        "author":"Mark Twain",
+        "summary": "Knjiga o odvažnom dječaku koji odrasta uz obalu rijeke Misisipi sredinom 19. vijeka. Remek djelo Američke literature.",
+        "publication_year":1876,
+        "ageLevelId":4,
+        "difficultyLevelId":2,
+        "value": 10,
+        "status":"WIP",
+        "userId":1,
+        "createdAt":"2021-10-03T13:47:05.675773-07:00",
+        "updatedAt":"2021-10-03T13:47:05.675773-07:00"
+    },
+    {
+        "title":"Derviš i smrt",
+        "author":"Meša Selimović",
+        "summary": "Psihološki roman o dervišu koji pokušava da izbavi brata iz zatvora. Njegovo poimanje svijeta se pritom sukobljava sa realnošću.",
+        "publication_year":1966,
+        "ageLevelId":5,
+        "difficultyLevelId":3,
+        "value": 10,
+        "status":"WIP",
+        "userId":1,
+        "createdAt":"2021-10-03T13:47:05.675773-07:00",
+        "updatedAt":"2021-10-03T13:47:05.675773-07:00"
+    },
+    {
+        "title":"Bijeli očnjak",
+        "author":"Jack London",
+        "summary": "Knjiga o pripitomljenom kidnapovanom psu koji je prinuđen da se vrati svojim divljim vučjim nagonima da bi opstao u svijetu čovjeka.",
+        "publication_year":1906,
+        "ageLevelId":3,
+        "difficultyLevelId":3,
+        "value": 10,
+        "status":"WIP",
+        "userId":1,
+        "createdAt":"2021-10-04T16:37:49.243-07:00",
+        "updatedAt":"2021-10-04T16:37:49.243-07:00"
+        },
+        {
+            "title":"Sto godina samoće",
+            "author":"Gabriel Garcia Markes",
+            "summary": "Markesovo remek djelo. Priča o izmišljenom kolumbijskom gradu Makondu i o usponu i padu njegove osnivačke porodice Buendia.",
+            "publication_year":1967,
+            "ageLevelId":5,
+            "difficultyLevelId":3,
+            "value": 10,
+            "status":"WIP",
+            "userId":1,
+            "createdAt":"2021-11-30T16:37:49.243-07:00",
+            "updatedAt":"2021-11-30T16:37:49.243-07:00"
+            },
+            {
+                "title":"Uhode",
+                "author":"Derviš Sušić",
+                "summary": "Knjiga o uhodama koje bilježe podatke o zemlji, ljudima i situaciji. Priča o isprepletenost laži i istina u zemlji u kojoj se sve vidi, čuje i zna, i u kojoj uhode budu uhođene.",
+                "publication_year":1973,
+                "ageLevelId":5,
+                "difficultyLevelId":2,
+                "value": 10,
+                "status":"WIP",
+                "userId":1,
+                "createdAt":"2021-12-02T16:37:49.243-07:00",
+                "updatedAt":"2021-12-02T16:37:49.243-07:00"
+                }
+    ]
+

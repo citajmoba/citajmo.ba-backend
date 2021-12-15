@@ -1,5 +1,7 @@
 const db = require("../models");
 const config = require("../config/auth.config");
+const msg = require("../config/msg.config");
+
 const User = db.models.user;
 const Role = db.models.role;
 
@@ -7,6 +9,8 @@ const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+const msgConfig = require("../config/msg.config");
+const { MSG_USER_SIGNUP_SUCCESS } = require("../config/msg.config");
 
 exports.signup = (req, res) => {
   // Save User to Database
@@ -25,13 +29,13 @@ exports.signup = (req, res) => {
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: msg.MSG_USER_SIGNUP_SUCCESS });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
-          res.send({ message: "User was registered successfully!" });
+          res.send({ message: msg.MSG_USER_SIGNUP_SUCCESS });
         });
       }
     })
@@ -48,7 +52,7 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send({ message: msg.MSG_USER_NOT_FOUND });
       }
       var passwordIsValid = bcrypt.compareSync(
         req.body.password,
@@ -58,7 +62,7 @@ exports.signin = (req, res) => {
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
-          message: "Invalid Password!"
+          message: msg.MSG_INVALID_PASSWORD
         });
       }
 

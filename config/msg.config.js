@@ -27,7 +27,10 @@ module.exports = {
     MSG_ERR_PUB_YEAR_INVALID: "Greška u godini publikacije. Za godine prije nove ere unesite 0.",
     MSG_ERR_NUM_ANS_INVALID: "Broj odgovora biti 2 ili 4",
     MSG_ERR_VALUE_INTEGER: "Vrijednost mora biti cijeli broj izmedju 1 i 10",
-    MSG_ERR_DIFFICULTY_LEVEL: "Težina mora biti unešena"
+    MSG_ERR_DIFFICULTY_LEVEL: "Težina mora biti unešena",
+    MSG_INVALID_PASSWORD: "Pogrešna lozinka",
+    MSG_USER_NOT_FOUND: "Nepostojeće korisničko ime",
+    MSG_USER_SIGNUP_SUCCESS: "Korisnik uspješno registrovan/a"
 }
 
 

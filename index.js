@@ -5,8 +5,17 @@ const args = require('minimist')(process.argv.slice(2));
 const pgtools = require("pgtools");
 require('dotenv').config();
 
-let corsOptions = {
-    origin: process.env.CORS_ORIGIN.split(",")
+const whitelist = process.env.CORS_ORIGIN.split(",");
+console.log(whitelist);
+
+const corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
   };
 
 //middleware

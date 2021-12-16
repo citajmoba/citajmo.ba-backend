@@ -6,7 +6,7 @@ const pgtools = require("pgtools");
 require('dotenv').config();
 
 let corsOptions = {
-    origin: process.env.CORS_ORIGIN
+    origin: process.env.CORS_ORIGIN.split(",")
   };
 
 //middleware

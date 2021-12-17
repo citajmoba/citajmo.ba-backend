@@ -88,3 +88,28 @@ exports.signin = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+exports.resetpwd = (req, res) => {
+  const { email } = req.body;
+
+  try {
+    // look for email in database
+    const [user] = await filterBy({ email });
+    // if there is no user send back an error
+    if(!user) {
+      res.status(404).json({ error: "Invalid email" });
+    } else {
+      // otherwise we need to create a temporary token that expires in 10 mins
+      const resetLink = jwt.sign({ user: user.email }, 
+      resetSecret, { expiresIn: '10m' });
+      // update resetLink property to be the temporary token and then send email
+      await update(user.id, { resetLink });
+      // we'll define this function below
+      sendEmail(user, resetLink);
+      res.status(200).json({ message: "Check your email"} );
+    }
+  } catch(error) {
+    res.status(500).json({ message: error.message });
+  }
+
+}

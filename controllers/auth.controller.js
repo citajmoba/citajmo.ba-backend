@@ -65,8 +65,9 @@ exports.signin = (req, res) => {
       }
 
       var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
+        expiresIn: parseInt(config.tokenEpiration)
       });
+
 
       var authorities = [];
       user.getRoles().then(roles => {
@@ -85,4 +86,40 @@ exports.signin = (req, res) => {
     .catch(err => {
       res.status(500).send({ message: err.message });
     });
+}
+
+exports.changePwd = (req, res) => {
+  User.findByPk(req.body.userId)
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({ message: msg.MSG_USER_NOT_FOUND });
+      }
+      var passwordIsValid = bcrypt.compareSync(
+        req.body.password,
+        user.password
+      );
+
+      if (!passwordIsValid) {
+        return res.status(401).send({
+          accessToken: null,
+          message: msg.MSG_INVALID_PASSWORD
+        });
+      }
+
+      var token = jwt.sign({ id: user.id }, config.secret, {
+        expiresIn: parseInt(config.tokenEpiration)
+      });
+
+      user.update( {password: bcrypt.hashSync(req.body.password, 8)})
+        .then(() => {
+        res.status(200).send({
+          accessToken: token,
+          message: msg.MSG_UPDATE_SUCCESS
+        });
+      })
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+
 };

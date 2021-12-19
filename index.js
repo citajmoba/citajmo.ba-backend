@@ -6,7 +6,6 @@ const pgtools = require("pgtools");
 require('dotenv').config();
 
 const whitelist = process.env.CORS_ORIGIN.split(",");
-console.log(whitelist);
 
 const corsOptions = {
     origin: function (origin, callback) {

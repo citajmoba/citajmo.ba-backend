@@ -5,7 +5,7 @@
 const args = require('minimist')(process.argv.slice(2));
 const pgtools = require("pgtools");
 require('dotenv').config();
-console.log(process.env.DB_NAME);
+
 (async () => {
   // create new database
     await pgtools.createdb(

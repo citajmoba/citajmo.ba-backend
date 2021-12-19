@@ -7,8 +7,6 @@ const { response } = require("express");
 
   //create a question for a book with bookId.
 exports.create = (req, res) => {
-    console.log('this is the received question:');
-    console.log(req.body);
     const noAnswers = req.body.answers.length ? req.body.answers.length : 0;
 
      // Validate the question

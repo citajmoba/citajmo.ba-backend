@@ -12,18 +12,18 @@ module.exports = function(app) {
   
   //CRUD operations over the API
 
-  //create new book
-  app.post("/api/books", controller.create);  
-
   //search all books
-  app.get("/api/books", controller.findAll);
+  app.get("/api/books", [authJwt.verifyToken], controller.findAll);
 
   //find one book by id
-  app.get("/api/books/:id", controller.findOne);
+  app.get("/api/books/:id", [authJwt.verifyToken], controller.findOne);
+
+  //create new book
+  app.post("/api/books", [authJwt.isContributorOrAdmin], controller.create);  
 
   //update a book. id provided in the params.
-  app.put("/api/books/:id", controller.update);
+  app.put("/api/books/:id", [authJwt.isContributorOrAdmin], controller.update);
 
   // delete a book. id provided in the params. also deletes all related questions.
-  app.delete("/api/books/:id", controller.delete);
-};
+  app.delete("/api/books/:id", [authJwt.isAdmin], controller.delete);
+}

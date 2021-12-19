@@ -96,7 +96,6 @@ exports.create = (req, res) => {
             the unique constraint across multiple columns so 
             the error message must be created here */
           case "SequelizeUniqueConstraintError":
-            console.log(err);
             res.status(400).send({
                 message: msg.MSG_ERR_BOOK_EXISTS + " : " + err.message + " : " + err.name
             });

@@ -19,11 +19,11 @@ module.exports = function(app) {
   app.get("/api/books/:id", [authJwt.verifyToken], controller.findOne);
 
   //create new book
-  app.post("/api/books", [authJwt.isContributorOrAdmin], controller.create);  
+  app.post("/api/books", [authJwt.verifyToken, authJwt.isContributorOrAdmin], controller.create);  
 
   //update a book. id provided in the params.
-  app.put("/api/books/:id", [authJwt.isContributorOrAdmin], controller.update);
+  app.put("/api/books/:id", [authJwt.verifyToken, authJwt.isContributorOrAdmin], controller.update);
 
   // delete a book. id provided in the params. also deletes all related questions.
-  app.delete("/api/books/:id", [authJwt.isAdmin], controller.delete);
+  app.delete("/api/books/:id", [authJwt.verifyToken, authJwt.isAdmin], controller.delete);
 }
